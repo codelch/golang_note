@@ -4,7 +4,7 @@
 
 ### 下载驱动
 
-Go中自带的`database/sql`包中只提供了必要的接口，并没有提供所需要的数据库驱动，所以需要下载驱动：
+Go中自带的`database/sql`包中只提供了必要的接口实现，并没有提供所需要的数据库驱动，所以需要下载驱动：
 
 > 下载MySQL驱动
 >
@@ -52,7 +52,7 @@ func (db *DB) SetMaxIdleConns(n int)
 示例代码：
 
 ```go
-	dsn := "root:root@tcp(127.0.0.1:3306)/sql_test"
+	dsn := "root:root@tcp(127.0.0.1:3306)/sql_test?charset=utf8mb4&parseTime=True"
 	//连接数据库
 	db, err = sql.Open("mysql", dsn) // 不会校验数据库账号密码是否正确
 	if err != nil {  // dsn格式不正确时会报错
